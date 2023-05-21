@@ -1,0 +1,9 @@
+liquibase update-sql
+
+liquibase update
+
+liquibase history
+
+liquibase status --verbose
+
+liquibase history --outputFile=history.txt
