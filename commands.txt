@@ -6,4 +6,4 @@ liquibase history
 
 liquibase status --verbose
 
-liquibase history --outputFile=history.txt
+liquibase history --outputFile=out/history.txt
