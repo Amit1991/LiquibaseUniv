@@ -7,3 +7,9 @@ liquibase history
 liquibase status --verbose
 
 liquibase history --outputFile=out/history.txt
+
+liquibase rollback-count 1
+
+liquibase diff --outputFile=out/diff.txt
+
+liquibase diff-changelog --changelog-file=abc.xml/yaml/json
