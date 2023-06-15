@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="5" author="amit_kumar">
+        <modifyDataType tableName="department1234" columnName="active" newDataType="tinyint(1)" />
+        <rollback>
+            <modifyDataType tableName="department1234" columnName="active" newDataType="boolean" />
+        </rollback>
+    </changeSet>
+
+    <changeSet id="6" author="amit_kumar">
+        <comment>This changeset inserts data into department1234 table.</comment>
+        <insert tableName="department1234" >
+            <column name="id" value="1"/>
+            <column name="firstname" value="amit" />
+            <column name="lastname" value="kumar" />
+            <column name="active" value="1" />
+        </insert>
+        <rollback>
+            <sql>DELETE FROM department1234 WHERE id = 1;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="7" author="amit_kumar" failOnError="false" >
+        <comment>This is to check unique index and rollback feature.</comment>
+        <insert tableName="department1234">
+            <column name="id" value="3"/>
+            <column name="firstname" value="amit" />
+            <column name="lastname" value="kumar" />
+            <column name="active" value="0" />
+        </insert>
+        <rollback>
+            <sql>DELETE FROM department1234 WHERE id = 1;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="8" author="pragya_tiwari">
+        <insert tableName="department1234">
+            <column name="id" value="2"/>
+            <column name="firstname" value="pragya" />
+            <column name="lastname" value="dubey" />
+            <column name="active" value="1" />
+        </insert>
+        <rollback>
+            <sql>DELETE FROM department1234 WHERE id = 2;</sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

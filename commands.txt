@@ -13,3 +13,11 @@ liquibase rollback-count 1
 liquibase diff --outputFile=out/diff.txt
 
 liquibase diff-changelog --changelog-file=abc.xml/yaml/json
+
+liquibase snapshot --outputFile=out/snapshot.txt
+
+liquibase snapshot --outputFile=out/snapshot.json --snapshotFormat=json
+
+liquibase --changelog-file=out/newChangeLog.xml generate-changelog
+
+liquibase db-doc mychangelogDocs
